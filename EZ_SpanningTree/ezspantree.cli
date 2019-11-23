@@ -1,0 +1,44 @@
+#################################################
+# %command="enable stpd easy-setup"
+#################################################
+%command="enable stpd easy-setup"%
+    %attribute%
+        %stpd       => help="STP domain";%
+        %easy-setup => help="Configure spanning tree s0 mode to MSTP/CIST. Start automatically adding VLANs to spanning tree s0";%
+    %endattribute%
+    %action="python"%
+from ezspantree import EzStpdCli
+a=EzStpdCli()
+a()
+    %endaction%
+%endcommand%
+
+#################################################
+# %command="disable stpd easy-setup"
+#################################################
+%command="disable  stpd easy-setup"%
+    %attribute%
+        %stpd       => help="STP domain";%
+        %easy-setup => help="Stop automatically adding VLANs to spanning tree s0";%
+    %endattribute%
+    %action="python"%
+from ezspantree import EzStpdCli
+a=EzStpdCli()
+a()
+    %endaction%
+%endcommand%
+
+#################################################
+# %command="show stpd easy-setup"
+#################################################
+%command="show stpd easy-setup"%
+    %attribute%
+        %stpd       => help="STP domain";%
+        %easy-setup => help="Show the running status of spanning tree s0 auto VLAN add feature";%
+    %endattribute%
+    %action="python"%
+from ezspantree import EzStpdCli
+a=EzStpdCli()
+a()
+    %endaction%
+%endcommand%
